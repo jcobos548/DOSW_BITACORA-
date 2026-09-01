@@ -1,6 +1,304 @@
 # DOSW_BITACORA-
 
-# SEMANA No 2 — Bitácora Pokémon
+# SEMANA No 1 — DOSW Manejo de Streams
+
+## Datos personales:
+- Nombre y Apellido:
+- Código de Estudiante:
+- Curso:
+
+---
+
+### Ejercicio 01 — Números Pares mayores a diez
+
+Dada una lista de números enteros, necesitamos obtener una nueva lista solo con los números pares mayores a 10.
+
+**Código implementado:**
+
+```java
+package dosw.semana_1.streams;
+
+import java.util.List;
+
+public class Ejercicio1 {
+
+    public static void main(String[] args) {
+
+        List<Integer> numbers = List.of(3, 8, 10, 12, 15, 18, 20);
+
+        List<Integer> result = numbers.stream()
+                .filter(number -> number > 10 && number % 2 == 0)
+                .toList();
+
+        System.out.println(result);
+    }
+}
+```
+
+**Captura de ejecución:**
+
+<!-- Pegar aquí la captura de ejecución del Ejercicio 1 -->
+
+**Explicación:**
+
+Se utiliza un Stream sobre la lista de números y `filter()` para conservar únicamente los números mayores a 10 que además sean pares. El resultado obtenido es `[12, 18, 20]`.
+
+---
+
+### Ejercicio 02 — Cantidad de Palabras con más de 4 caracteres
+
+Dada una lista de palabras, se requiere filtrar las palabras que tengan más de 4 caracteres, convertirlas en mayúsculas, ordenarlas alfabéticamente y obtener la cantidad total de palabras resultantes.
+
+**Código implementado:**
+
+```java
+package dosw.semana_1.streams;
+
+import java.util.List;
+
+public class Ejercicio2 {
+
+    public static void main(String[] args) {
+
+        List<String> words = List.of(
+                "java",
+                "stream",
+                "api",
+                "functional",
+                "code",
+                "git"
+        );
+
+        List<String> result = words.stream()
+                .filter(word -> word.length() > 4)
+                .map(String::toUpperCase)
+                .sorted()
+                .toList();
+
+        System.out.println(result);
+        System.out.println("Cantidad de palabras resultantes: " + result.size());
+    }
+}
+```
+
+**Captura de ejecución:**
+
+<!-- Pegar aquí la captura de ejecución del Ejercicio 2 -->
+
+**Explicación:**
+
+Se utiliza `filter()` para seleccionar las palabras que tienen más de cuatro caracteres. Luego, `map()` las convierte a mayúsculas y `sorted()` las ordena alfabéticamente. Finalmente, se obtiene la cantidad de palabras utilizando `size()`. El resultado es `[FUNCTIONAL, STREAM]` y la cantidad de palabras resultantes es 2.
+
+---
+
+### Ejercicio 03 — Obtener nombres de los Usuarios
+
+Dada una lista de usuarios con los atributos `id`, `name`, `age` y `active`, se deben filtrar únicamente los usuarios activos, obtener una lista con sus nombres en mayúscula y ordenarlos alfabéticamente.
+
+**Código implementado:**
+
+```java
+package dosw.semana_1.streams;
+
+import java.util.List;
+
+public class Ejercicio3 {
+
+    public static class User {
+        private int id;
+        private String name;
+        private int age;
+        private boolean active;
+
+        public User(int id, String name, int age, boolean active) {
+            this.id = id;
+            this.name = name;
+            this.age = age;
+            this.active = active;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public boolean isActive() {
+            return active;
+        }
+    }
+
+    public static void main(String[] args) {
+
+        List<User> users = List.of(
+                new User(1, "Carlos", 20, true),
+                new User(2, "Ana", 25, false),
+                new User(3, "Pedro", 30, true),
+                new User(4, "Maria", 22, true),
+                new User(5, "Luis", 28, false)
+        );
+
+        List<String> sortedUsers = users.stream()
+                .filter(User::isActive)
+                .map(User::getName)
+                .map(String::toUpperCase)
+                .sorted()
+                .toList();
+
+        System.out.println(sortedUsers);
+    }
+}
+```
+
+**Captura de ejecución:**
+
+<!-- Pegar aquí la captura de ejecución del Ejercicio 3 -->
+
+**Explicación:**
+
+Se utiliza `filter()` para seleccionar únicamente los usuarios activos. Después, `map()` permite obtener sus nombres y convertirlos a mayúsculas. Finalmente, `sorted()` organiza los nombres alfabéticamente. El resultado obtenido es `[CARLOS, MARIA, PEDRO]`.
+
+---
+
+### Ejercicio 04 — Personas mayores de edad
+
+Dado un listado de usuarios y utilizando los mismos atributos anteriores, se deben filtrar las personas mayores de edad y obtener sus nombres.
+
+**Código implementado:**
+
+```java
+package dosw.semana_1.streams;
+
+import java.util.List;
+
+public class Ejercicio4 {
+
+    public static class User {
+        private int id;
+        private String name;
+        private int age;
+        private boolean active;
+
+        public User(int id, String name, int age, boolean active) {
+            this.id = id;
+            this.name = name;
+            this.age = age;
+            this.active = active;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public int getAge() {
+            return age;
+        }
+    }
+
+    public static void main(String[] args) {
+
+        List<User> users = List.of(
+                new User(1, "Carlos", 17, true),
+                new User(2, "Ana", 25, true),
+                new User(3, "Pedro", 18, false),
+                new User(4, "Maria", 30, true),
+                new User(5, "Luis", 15, true)
+        );
+
+        List<String> adults = users.stream()
+                .filter(user -> user.getAge() >= 18)
+                .map(User::getName)
+                .toList();
+
+        System.out.println(adults);
+    }
+}
+```
+
+**Captura de ejecución:**
+
+<!-- Pegar aquí la captura de ejecución del Ejercicio 4 -->
+
+**Explicación:**
+
+Se utiliza `filter()` para seleccionar los usuarios cuya edad sea mayor o igual a 18 años. Después, mediante `map()` se obtienen únicamente sus nombres. El resultado obtenido es `[Ana, Pedro, Maria]`.
+
+---
+
+### Ejercicio 05 — Transacciones Bancarias
+
+Dada una lista de transacciones bancarias representadas por objetos con los atributos `id`, `amount` y `approved`, se requiere procesar la lista utilizando Streams. Se debe utilizar `peek()` para observar cada transacción procesada y `anyMatch()` para verificar si existe al menos una transacción no aprobada. Finalmente, se debe retornar `true` o `false` indicando si el lote de transacciones es válido.
+
+**Código implementado:**
+
+```java
+package dosw.semana_1.streams;
+
+import java.util.List;
+
+public class Ejercicio5 {
+
+    static class Transaction {
+        private String id;
+        private double amount;
+        private boolean approved;
+
+        public Transaction(String id, double amount, boolean approved) {
+            this.id = id;
+            this.amount = amount;
+            this.approved = approved;
+        }
+
+        public boolean isApproved() {
+            return approved;
+        }
+
+        @Override
+        public String toString() {
+            return "Transaction{" +
+                    "id='" + id + '\'' +
+                    ", amount=" + amount +
+                    ", approved=" + approved +
+                    '}';
+        }
+    }
+
+    public static void main(String[] args) {
+
+        List<Transaction> transactions = List.of(
+                new Transaction("T001", 150.0, true),
+                new Transaction("T002", 300.0, true),
+                new Transaction("T003", 75.0, false),
+                new Transaction("T004", 500.0, true)
+        );
+
+        boolean hasNotApproved = transactions.stream()
+                .peek(transaction -> System.out.println(
+                        "Procesando: " + transaction))
+                .anyMatch(transaction -> !transaction.isApproved());
+
+        boolean valid = !hasNotApproved;
+
+        System.out.println("¿Lote válido? " + valid);
+    }
+}
+```
+
+**Captura de ejecución:**
+
+<!-- Pegar aquí la captura de ejecución del Ejercicio 5 -->
+
+**Explicación:**
+
+Se utiliza `peek()` para mostrar en consola cada transacción procesada. Luego, `anyMatch()` verifica si existe al menos una transacción que no haya sido aprobada. Como la transacción `T003` no está aprobada, el resultado de `anyMatch()` es `true`, por lo que el lote de transacciones se considera inválido y se muestra `false`.
+
+---
+
+## Conclusión
+
+Durante esta semana se trabajó con los conceptos básicos de programación funcional en Java utilizando Streams y expresiones Lambda. Se utilizaron operaciones como `filter()`, `map()`, `sorted()`, `peek()` y `anyMatch()` para procesar colecciones de datos de manera funcional, evitando ciclos tradicionales y recorridos imperativos.
+
+---
+
+# SEMANA No 2 
 
 ## Datos de Entrenador
 
@@ -1180,8 +1478,3 @@ También se aplicó un flujo de Git organizado, trabajando cada ejercicio en una
 
 ---
 
-# Evidencias
-
-Las capturas de ejecución de cada ejercicio deben colocarse en los espacios correspondientes de este documento.
-
-Cada evidencia debe mostrar claramente la ejecución correcta del ejercicio y su salida en consola.
