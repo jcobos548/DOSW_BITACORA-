@@ -3,9 +3,9 @@
 # SEMANA No 1 — DOSW Manejo de Streams
 
 ## Datos personales:
-- Nombre y Apellido:
-- Código de Estudiante:
-- Curso:
+- Nombre y Apellido: Julian Giral
+- Código de Estudiante: 1000100073
+- Curso: DOSW GRUPO1
 
 ---
 
@@ -1434,40 +1434,6 @@ Los Method References permiten utilizar directamente métodos existentes dentro 
 
 ---
 
-# Flujo de Git utilizado
-
-Para cada ejercicio se utilizó el siguiente flujo:
-
-~~~text
-feature/semana-2-dosw
-        ↓
-feature/semana-2-dosw-ejercicio-n
-        ↓
-      Commit
-        ↓
-       Push
-        ↓
-Merge a feature/semana-2-dosw
-        ↓
-Eliminar rama del ejercicio
-~~~
-
-Una vez completados todos los ejercicios:
-
-~~~text
-feature/semana-2-dosw
-        ↓
-   Pull Request
-        ↓
-     develop
-        ↓
-      main
-~~~
-
-La rama semanal `feature/semana-2-dosw` se conserva como evidencia del proceso de desarrollo.
-
----
-
 # Conclusión
 
 Durante la Semana 2 se practicaron diferentes operaciones de Streams de Java, incluyendo `filter()`, `map()`, `reduce()`, `sorted()`, `distinct()`, `max()`, `groupingBy()`, `counting()`, `mapToDouble()`, `average()`, `sum()` y `limit()`.
@@ -1478,3 +1444,257 @@ También se aplicó un flujo de Git organizado, trabajando cada ejercicio en una
 
 ---
 
+# Semana 4 — Taller #4 DOSW
+
+## Descripción
+
+Durante esta semana se desarrollaron los ejercicios correspondientes al Taller #4 de Desarrollo Orientado a Software (DOSW). En los ejercicios se aplicaron diferentes patrones de diseño, combinándolos en soluciones orientadas a problemas reales de software.
+
+Los patrones trabajados fueron:
+
+- Strategy
+- Observer
+- Chain of Responsibility
+- State
+- Builder
+- Decorator
+- Command
+- Facade
+- Adapter
+
+---
+
+## Ejercicio 1 — Plataforma de Pagos Inteligentes
+
+### Patrones utilizados
+- [Patrón 1]
+- [Patrón 2]
+
+### Descripción
+Se desarrolló una solución aplicando los patrones de diseño solicitados en el taller, siguiendo el esquema de clases propuesto.
+
+### Implementación
+La solución se organizó mediante clases y responsabilidades separadas, buscando mantener un bajo acoplamiento y facilitar la extensión del sistema.
+
+---
+
+## Ejercicio 2 — Sistema de Notificaciones Multicanal
+
+### Patrones utilizados
+- [Patrón 1]
+- [Patrón 2]
+
+### Descripción
+Se implementó el problema planteado utilizando los patrones de diseño indicados en el taller.
+
+### Implementación
+Las responsabilidades fueron distribuidas entre las diferentes clases de acuerdo con el patrón correspondiente.
+
+---
+
+## Ejercicio 3 — Sistema de Reportes Empresariales
+
+### Patrones utilizados
+- [Patrón 1]
+- [Patrón 2]
+
+### Descripción
+Se desarrolló la solución propuesta en el taller utilizando los patrones de diseño correspondientes.
+
+### Implementación
+Se siguió la estructura de clases sugerida, separando las responsabilidades de cada componente.
+
+---
+
+## Ejercicio 4 — Plataforma de Videojuegos — Personajes
+
+### Patrones utilizados
+- [Patrón 1]
+- [Patrón 2]
+
+### Descripción
+Se implementó el escenario planteado aplicando los patrones de diseño solicitados.
+
+### Implementación
+La solución permite separar las responsabilidades y facilita la interacción entre los diferentes componentes del sistema.
+
+---
+
+## Ejercicio 5 — Sistema de Pagos Bancarios
+
+### Patrones utilizados
+- Adapter
+- Facade
+
+### Descripción
+Se desarrolló un sistema de procesamiento de pagos que permite utilizar un servicio bancario antiguo mediante una interfaz moderna y sencilla.
+
+### Implementación
+
+El patrón **Adapter** permite adaptar `LegacyBankService` a la interfaz `PaymentProcessor`, realizando la conversión del monto de dólares a centavos y traduciendo la operación de pago al método utilizado por el sistema bancario antiguo.
+
+El patrón **Facade** simplifica el proceso completo de pago, ocultando los diferentes pasos necesarios para inicializar la conexión, iniciar la sesión, verificar la cuenta, preparar la transacción, procesarla y cerrar la sesión.
+
+La interacción principal es:
+
+`BankFacade → LegacyBankAdapter → LegacyBankService`
+
+---
+
+## Ejercicio 6 — Motor de Recomendaciones
+
+### Patrones utilizados
+- Strategy
+- Observer
+
+### Descripción
+Se desarrolló un motor de recomendaciones que permite cambiar el algoritmo utilizado para generar recomendaciones y actualizar automáticamente los componentes interesados cuando cambian las preferencias del usuario.
+
+### Implementación
+
+El patrón **Strategy** permite definir diferentes algoritmos de recomendación mediante la interfaz `RecommendationAlgorithm`. Se implementaron estrategias como `GenreStrategy` y `PopularityStrategy`.
+
+El patrón **Observer** permite que diferentes componentes sean notificados cuando el usuario cambia sus preferencias.
+
+La interacción principal es:
+
+`UserProfile → PreferenceObserver → HomePageComponent / SuggestedListComponent`
+
+---
+
+## Ejercicio 7 — Flujo de Aprobación de Documentos
+
+### Patrones utilizados
+- Chain of Responsibility
+- State
+
+### Descripción
+Se desarrolló un flujo de aprobación de documentos en el que diferentes responsables procesan el documento dependiendo de su estado.
+
+### Implementación
+
+El patrón **Chain of Responsibility** permite encadenar diferentes responsables del proceso:
+
+`AuthorHandler → LeaderHandler → LegalHandler`
+
+Cada handler decide si puede procesar el documento o si debe continuar con el siguiente.
+
+El patrón **State** permite representar los diferentes estados del documento:
+
+`DraftState → InReviewState → ApprovedState`
+
+También se contempla el estado `RejectedState`.
+
+De esta forma, el comportamiento del documento depende de su estado actual.
+
+---
+
+## Ejercicio 8 — Sistema de Pedidos en Restaurante
+
+### Patrones utilizados
+- Builder
+- Observer
+
+### Descripción
+Se desarrolló un sistema para construir pedidos personalizados de restaurante y notificar a los diferentes servicios cuando un pedido es confirmado.
+
+### Implementación
+
+El patrón **Builder** permite construir un pedido paso a paso utilizando `OrderBuilder`, agregando características como tamaño, tipo de carne, toppings y acompañamientos.
+
+El patrón **Observer** permite notificar automáticamente a los diferentes servicios cuando el pedido es confirmado.
+
+Los observadores implementados fueron:
+
+- `KitchenService`
+- `BillingService`
+- `DeliveryService`
+
+La interacción principal es:
+
+`Order → confirm() → KitchenService / BillingService / DeliveryService`
+
+---
+
+## Ejercicio 9 — Sistema de Autenticación Empresarial
+
+### Patrones utilizados
+- Strategy
+- Chain of Responsibility
+
+### Descripción
+Se desarrolló un sistema de autenticación empresarial que permite seleccionar diferentes mecanismos de autenticación y posteriormente ejecutar una cadena de validaciones.
+
+### Implementación
+
+El patrón **Strategy** permite seleccionar el mecanismo de autenticación mediante `AuthStrategy`.
+
+Se implementaron diferentes estrategias:
+
+- `PasswordStrategy`
+- `GoogleStrategy`
+- `BiometricStrategy`
+
+El patrón **Chain of Responsibility** permite ejecutar las validaciones posteriores mediante:
+
+`CredentialValidator → PermissionValidator → LocationValidator → TimeValidator`
+
+De esta manera, el sistema puede cambiar el mecanismo de autenticación sin modificar el proceso general de validación.
+
+---
+
+## Ejercicio 10 — Aplicación de Edición de Imágenes
+
+### Patrones utilizados
+- Decorator
+- Command
+
+### Descripción
+Se desarrolló una aplicación que permite aplicar filtros de manera acumulativa sobre una imagen y deshacer las operaciones realizadas.
+
+### Implementación
+
+El patrón **Decorator** permite agregar filtros a una imagen sin modificar la clase original.
+
+Se implementaron:
+
+- `GrayscaleDecorator`
+- `SepiaDecorator`
+- `BrightnessDecorator`
+
+Los filtros pueden combinarse de forma acumulativa:
+
+`BaseImage → GrayscaleDecorator → SepiaDecorator → BrightnessDecorator`
+
+El patrón **Command** encapsula cada operación de aplicación de filtros mediante `ApplyFilterCommand`.
+
+Cada comando permite:
+
+- `execute()` para aplicar el filtro.
+- `undo()` para deshacer la operación.
+
+---
+
+## Patrones de diseño utilizados
+
+| Patrón | Ejercicios | Propósito |
+|---|---|---|
+| Strategy | 6, 9 | Permitir seleccionar o cambiar algoritmos o comportamientos |
+| Observer | 6, 8 | Notificar automáticamente a diferentes componentes |
+| Chain of Responsibility | 7, 9 | Procesar solicitudes mediante una cadena de responsables |
+| State | 7 | Cambiar el comportamiento según el estado de un objeto |
+| Builder | 8 | Construir objetos complejos paso a paso |
+| Adapter | 5 | Adaptar una interfaz existente a otra compatible |
+| Facade | 5 | Simplificar el acceso a un sistema complejo |
+| Decorator | 10 | Agregar funcionalidades de manera acumulativa |
+| Command | 10 | Encapsular operaciones y permitir ejecutarlas o deshacerlas |
+
+---
+
+## Conclusiones
+
+Durante el Taller #4 se aplicaron diferentes patrones de diseño para resolver problemas de software con estructuras más organizadas y flexibles.
+
+Los ejercicios permitieron observar cómo diferentes patrones pueden combinarse para separar responsabilidades, reducir el acoplamiento y facilitar la extensión de los sistemas.
+
+Además, se comprobó mediante la ejecución de los ejercicios que las implementaciones desarrolladas cumplen con el comportamiento esperado.
