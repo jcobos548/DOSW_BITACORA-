@@ -1698,3 +1698,137 @@ Durante el Taller #4 se aplicaron diferentes patrones de diseño para resolver p
 Los ejercicios permitieron observar cómo diferentes patrones pueden combinarse para separar responsabilidades, reducir el acoplamiento y facilitar la extensión de los sistemas.
 
 Además, se comprobó mediante la ejecución de los ejercicios que las implementaciones desarrolladas cumplen con el comportamiento esperado.
+
+# SEMANA No 6 — PLANEACIÓN ÁGIL
+
+## Taller #6 — Planeación Ágil TECH CUP FÚTBOL
+
+Durante esta semana trabajaremos en la planeación del proyecto TECH CUP FÚTBOL utilizando conceptos de metodología ágil y Scrum. El objetivo será organizar el proyecto antes de comenzar su desarrollo, definiendo qué se debe construir, cómo se dividirá el trabajo y en qué orden se realizará.
+
+---
+
+## 1. Diagrama de contexto
+
+Primero construiremos un diagrama C4 de nivel 1 para representar el sistema TECH CUP FÚTBOL y su relación con los usuarios y servicios externos.
+
+Se identificarán los principales actores que utilizarán la plataforma y los sistemas externos necesarios para su funcionamiento.
+
+**Actores principales:**
+- Jugador
+- Capitán
+- Árbitro
+- Organizador
+- Graduado/Familiar
+
+**Sistemas externos:**
+- Servicio de correo para el envío de códigos de verificación.
+- Servicio de mapas para consultar la ubicación de las canchas.
+- Servicio de almacenamiento para imágenes y comprobantes.
+
+El diagrama será realizado en Draw.io y se guardará dentro de la carpeta de documentación del proyecto.
+
+---
+
+## 2. Organización del Backlog
+
+Después del diagrama se organizará el trabajo utilizando una estructura jerárquica:
+
+```text
+Épica
+ └── Feature
+      └── Tarea técnica
+```
+
+La épica representará el proyecto completo.
+
+Los Features representarán las funcionalidades principales que se deben desarrollar y dentro de ellos se documentarán las Historias de Usuario y sus criterios de aceptación.
+
+Finalmente, cada Feature será dividido en tareas técnicas pequeñas que puedan ser desarrolladas y estimadas.
+
+---
+
+## 3. Épica del proyecto
+
+Crearemos una única épica para representar el desarrollo completo de la plataforma:
+
+**TCH-EPIC-01 — Plataforma digital TECH CUP FÚTBOL**
+
+Esta épica tendrá como propósito centralizar la administración del torneo y solucionar los problemas actuales relacionados con inscripciones, equipos, partidos, resultados, arbitraje y comunicación.
+
+También se definirán claramente el alcance del proyecto, aquello que queda por fuera y los criterios que permitirán determinar si el proyecto fue exitoso.
+
+---
+
+## 4. Features
+
+El proyecto será dividido en Features funcionales y de infraestructura.
+
+Entre las funcionalidades principales estarán:
+
+- Registro e identidad de usuarios.
+- Perfiles deportivos.
+- Gestión de jugadores y equipos.
+- Inscripción al torneo.
+- Calendario y partidos.
+- Alineaciones.
+- Arbitraje en vivo.
+- Logística.
+- Estadísticas.
+- Comunicaciones.
+- Tabla de posiciones y eliminatorias.
+- Dashboard del organizador.
+
+También se crearán Features relacionados con la infraestructura, documentación, identidad visual, Jira y presentación final.
+
+Cada Feature funcional tendrá sus respectivas Historias de Usuario y criterios de aceptación.
+
+---
+
+## 5. Tareas técnicas
+
+Cada Feature será dividido en tareas técnicas concretas.
+
+Las tareas deberán ser suficientemente pequeñas para poder realizarlas dentro de un sprint y tendrán una estimación utilizando Story Points.
+
+Utilizaremos una escala de:
+
+- **1 punto:** tarea sencilla.
+- **2 puntos:** tarea con complejidad moderada.
+- **3 puntos:** tarea con integración o mayor dificultad técnica.
+
+También se definirá qué condiciones debe cumplir cada tarea para considerarla terminada.
+
+---
+
+## 6. Sprints
+
+El trabajo será organizado en siete sprints.
+
+La intención será distribuir progresivamente las funcionalidades, comenzando por la configuración y la identidad de usuarios y avanzando hacia las funcionalidades principales del torneo.
+
+La distribución se realizará teniendo en cuenta la capacidad disponible de cada sprint y evitando sobrecargar un sprint con más trabajo del que puede realizarse.
+
+---
+
+## 7. Implementación en Jira
+
+Finalmente llevaremos toda la planeación a Jira.
+
+En Jira realizaremos:
+
+1. Configuración del proyecto Scrum.
+2. Creación de la épica.
+3. Creación de los Features.
+4. Creación de las tareas técnicas.
+5. Asignación de Story Points.
+6. Creación y configuración de los sprints.
+7. Distribución de las tareas.
+8. Inicio y seguimiento del sprint correspondiente.
+
+Se tomarán las capturas necesarias para demostrar la configuración realizada.
+
+---
+
+## Objetivo de la semana
+
+Al finalizar esta semana debemos tener una planeación completa y organizada del proyecto TECH CUP FÚTBOL, de manera que el equipo tenga claro **qué debe construir, cómo se divide el trabajo, cuánto esfuerzo requiere y cuándo se realizará cada actividad**.
